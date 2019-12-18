@@ -1,0 +1,25 @@
+.seach-form {
+    display: flex;
+}
+
+.search-box {
+    flex: 1;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 0 5px;
+    font-size: 18px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.btn-secondary {
+    border: 0;
+    width: 100px;
+    position: relative;
+    left: -7px;
+    border: 3px;
+    cursor: pointer;
+    background-color: #F8C15D;
+    font-weight: bold;
+}

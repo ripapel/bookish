@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import SearchBox from './components/SearchBox/SearchBox'
+import BooksGroup from './components/BooksGroup/BooksGroup'
+import './App.css'
+import { searchBooks } from './services/api'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      books: [],
+      searchTerm: ''
+    }
+  }
+
+
+  handleSearch = (e) => {
+    e.preventDefault()
+    searchBooks({
+      searchTerm: this.state.searchTerm,
+      whenDoneStream: function (result) { this.setState({books: result}) }.bind(this)
+    })
+  }
+
+  handleChangeSearchTerm = e => {
+    this.setState({
+      searchTerm: e.target.value
+    })
+  }
+
+  render() {
+    return (
+      <div className="App" >
+        <SearchBox
+          searchTerm={this.state.searchTerm}
+          handleSearch={this.handleSearch}
+          handleChangeSearchTerm={this.handleChangeSearchTerm}
+        />
+        <BooksGroup books={this.state.books} />
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App

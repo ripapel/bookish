@@ -1,0 +1,6 @@
+.books-group {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+    margin-top: 30px;
+}
