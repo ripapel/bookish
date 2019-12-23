@@ -1,3 +1,11 @@
-body{
+body {
   padding: 7vh 20vw;
+}
+
+.row {
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
 }

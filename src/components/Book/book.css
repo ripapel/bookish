@@ -1,16 +1,16 @@
-.book .title{
+.book .title {
     font-size: 12px;
     margin: 5px 0;
     color: #555;
 }
 
-.book .author{
+.book .author {
     font-size: 12px;
     margin: 0;
     color: #555;
 }
 
-.book .btn-primary{
+.book .btn-primary {
     border: 0;
     background-color: #FAF1EA;
     height: 32px;
@@ -20,6 +20,20 @@
     cursor: pointer;
 }
 
-.book{
+.book {
     margin-bottom: 15px;
+    position: relative;
+}
+
+.book-description-hidden {
+    display: none;
+}
+
+.book-description {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 100px;
+    border: 6px solid #FAF1EA;
 }
