@@ -2,12 +2,14 @@
     font-size: 12px;
     margin: 5px 0;
     color: #555;
+    max-width: 125px;
 }
 
 .book .author {
     font-size: 12px;
     margin: 0;
     color: #555;
+    max-width: 125px;
 }
 
 .book .btn-primary {
@@ -36,4 +38,21 @@
     top: 0px;
     left: 100px;
     border: 6px solid #FAF1EA;
+    background-color: white;
+    padding: 0 24px;
+    width: 400px;
+    padding: 0 25px;
+}
+
+.book-description-title{
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.book-description-author{
+    font-size: 14px;
+}
+
+.book-description-paragraph{
+    font-size: 13px;
 }

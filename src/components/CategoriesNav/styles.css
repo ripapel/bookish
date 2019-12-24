@@ -1,7 +1,15 @@
 .category-link{
     color: black;
+    text-decoration: none;
+    color: #060606;
+    font-size: 13.5px;
+    line-height: 28px;
 }
 
 .categories-nav-list {
     list-style-type: none;
+}
+
+.category-link:hover{
+    text-decoration: underline;
 }

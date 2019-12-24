@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SearchBox from './components/SearchBox/SearchBox'
 import BooksGroup from './components/BooksGroup/BooksGroup'
 import CategoriesNav from './components/CategoriesNav/CategoriesNav'
+import Header from './components/Header/Header'
 import './App.css'
 import { searchBooks, getAuthor } from './services/api'
 
@@ -31,9 +32,9 @@ class App extends Component {
     const books = this.state.books
     const bookIndex = books.findIndex(b => b.id === bookId)
     const book = books[bookIndex]
-    const authorBook =  author.books.find(b => b.id === bookId)
-    const description = authorBook ?  authorBook.description : undefined
-    book.description = description ? description : 'No description available' 
+    const authorBook = author.books.find(b => b.id === bookId)
+    const description = authorBook ? authorBook.description : undefined
+    book.description = description ? description : 'No description available'
     books[bookIndex] = book
     this.setState({
       books: books
@@ -43,7 +44,7 @@ class App extends Component {
   getBookDescription = ({ authorId, bookId }) => {
     if (this.state.authors[authorId]) {
       this.setBookDescription({
-        author: this.state.authors[authorId], 
+        author: this.state.authors[authorId],
         bookId
       })
       return
@@ -87,16 +88,18 @@ class App extends Component {
   render() {
     return (
       <div className="App" >
-        <SearchBox
-          searchTerm={this.state.searchTerm}
-          handleSearch={this.handleSearch}
-          handleChangeSearchTerm={this.handleChangeSearchTerm}
-        />
-        <div className="row space-between">
-          <BooksGroup books={this.state.books} loading={this.state.loading} getBookDescription={this.getBookDescription} />
-          <CategoriesNav />
+        <Header />
+        <div className="home-page-inner">
+          <SearchBox
+            searchTerm={this.state.searchTerm}
+            handleSearch={this.handleSearch}
+            handleChangeSearchTerm={this.handleChangeSearchTerm}
+          />
+          <div className="row space-between">
+            <BooksGroup books={this.state.books} loading={this.state.loading} getBookDescription={this.getBookDescription} />
+            <CategoriesNav />
+          </div>
         </div>
-
       </div>
     )
   }
